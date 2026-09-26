@@ -48,7 +48,7 @@ jobs:
 
     steps:
       - name: Generate temporary keystore
-        if: github.event_name == 'pull_request'
+        if: true
         id: gen
         run: |
           KEYSTORE_PASSWORD=$(openssl rand -hex 32)
@@ -71,7 +71,7 @@ jobs:
           echo "keystore=$(base64 -w 0 pr-key.jks)" >> $GITHUB_OUTPUT
 
       - name: Extract certificate hash and size
-        if: github.event_name == 'pull_request'
+        if: true
         id: extract
         env:
           STORE_PASS: ${{ steps.gen.outputs.keystore_password }}
@@ -231,9 +231,9 @@ jobs:
       # --------------------------------------------------------
 
       - name: Write key
-        if: ${{ (github.event_name != 'pull_request' &&
-          (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev'))
-          || github.ref_type == 'tag' }}
+        if: false
+
+
 
         run: |
           if [ ! -z "${{ secrets.KEYSTORE }}" ]; then
@@ -249,7 +249,7 @@ jobs:
 
 
       - name: Write PR key
-        if: github.event_name == 'pull_request'
+        if: true
 
         env:
           PR_KEYSTORE: ${{ needs.generate-key.outputs.keystore }}
@@ -352,7 +352,7 @@ jobs:
 
       - name: Build with Gradle
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
+          if [ "${{ github.event_name }}" = "__nope__" ]; then
             ./gradlew clean assembleRelease -PIS_PR_BUILD=true
           else
             ./gradlew clean assembleRelease
@@ -550,7 +550,7 @@ jobs:
           PROD_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
+          if [ "${{ github.event_name }}" = "__nope__" ]; then
 
             echo "$PR_KEYSTORE" | base64 -d > pr-key.jks
 
