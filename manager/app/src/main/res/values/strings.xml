@@ -551,9 +551,9 @@
     <string name="kstat_path_management">Kstat Path Management</string>
     <string name="no_kstat_config_message">No Kstat configuration yet, click the button below to add</string>
     <!-- SuSFS Mount Hiding Control Related Strings -->
-    <string name="susfs_hide_mounts_for_all_procs_label">Hide SUS mounts for all processes</string>
-    <string name="susfs_hide_mounts_for_all_procs_enabled_description">When enabled, SUS mounts will be hidden from all processes, including KSU processes</string>
-    <string name="susfs_hide_mounts_for_all_procs_disabled_description">When disabled, SUS mounts will only be hidden from non-KSU processes, KSU processes can see the mounts</string>
+    <string name="susfs_hide_mounts_for_all_procs_label">Hide SUS mounts (non-su processes only)</string>
+    <string name="susfs_hide_mounts_for_all_procs_enabled_description">When enabled, SUS mounts are hidden from non-su processes only (this is what the kernel really does). su / KSU view and module behaviour are unaffected.</string>
+    <string name="susfs_hide_mounts_for_all_procs_disabled_description">When disabled, SUS mounts are also visible to non-su processes; mount-table scanners such as Hunter will see the mountify overlays.</string>
     <!-- SuSFS Backup and Restore Related Strings -->
     <string name="susfs_backup_title">Backup</string>
     <string name="susfs_backup_description">Create a backup of all SuSFS configurations. The backup file will include all settings, paths, and configurations</string>
