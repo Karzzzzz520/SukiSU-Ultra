@@ -347,7 +347,7 @@ jobs:
 
       - name: Build with Gradle
         run: |
-          if true; then
+          if false; then
             ./gradlew clean assembleRelease -PIS_PR_BUILD=true
           else
             ./gradlew clean assembleRelease
