@@ -420,9 +420,9 @@
     <string name="kstat_path_management">Kstat 路徑管理</string>
     <string name="no_kstat_config_message">暫無 Kstat 配置，點擊下方按鈕添加配置</string>
     <!-- SuSFS Mount Hiding Control Related Strings -->
-    <string name="susfs_hide_mounts_for_all_procs_label">對所有進程隱藏 SuS 掛載</string>
-    <string name="susfs_hide_mounts_for_all_procs_enabled_description">啟用後，SuS 掛載將對所有進程隱藏，包括 KSU 進程</string>
-    <string name="susfs_hide_mounts_for_all_procs_disabled_description">禁用後，SuS 掛載僅對非 KSU 進程隱藏，KSU 進程可以看到掛載</string>
+    <string name="susfs_hide_mounts_for_all_procs_label">隱藏 SuS 掛載（僅對非 su 進程生效）</string>
+    <string name="susfs_hide_mounts_for_all_procs_enabled_description">啟用後，SuS 掛載對非 su 進程不可見（內核行為），su/KSU 進程視角不變</string>
+    <string name="susfs_hide_mounts_for_all_procs_disabled_description">禁用後，讀掛載表的檢測器（如 Hunter）可以看到模組覆蓋層</string>
     <!-- SuSFS Backup and Restore Related Strings -->
     <string name="susfs_backup_title">備份</string>
     <string name="susfs_backup_description">創建所有 SuSFS 配置的備份。備份文件將包含所有設置、路徑和配置信息。</string>
