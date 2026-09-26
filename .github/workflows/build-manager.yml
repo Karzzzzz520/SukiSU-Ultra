@@ -550,7 +550,7 @@ jobs:
           PROD_KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
         run: |
-          if [ "${{ github.event_name }}" = "__nope__" ]; then
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
 
             echo "$PR_KEYSTORE" | base64 -d > pr-key.jks
 
