@@ -26,7 +26,8 @@ fun getGitDescribe(): String {
 }
 
 fun getVersionCode(): Int {
-    val commitCount = getGitCommitCount()
+    // pinned: 与内核 KSU_VERSION 40900 对齐（否则 fork 多出的提交会让版本号漂移）
+    val commitCount = 3715
     val major = 4
     val end = 2815
     return major * 10000 + commitCount - end
